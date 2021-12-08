@@ -9,12 +9,20 @@ Luciferon::Luciferon(std::unique_ptr<impresarioUtils::NetworkSocket> cosmographe
 }
 
 void Luciferon::activate() {
-    auto serializedData = cosmographerSocket->receiveSerializedData();
-    auto luminary = ImpresarioSerialization::GetLuminary(serializedData->getBuffer());
+    auto serializedData = cosmographerSocket->receiveParcel();
+    auto glimpse = ImpresarioSerialization::GetGlimpse(serializedData->getBuffer());
     std::vector<unsigned char> sendBuffer;
-    sendBuffer.reserve(luminary->glimpse()->size() * 3);
-    for (int i = 0; i < luminary->glimpse()->size(); i++) {
-        auto color = luminary->glimpse()->Get(i);
+    sendBuffer.reserve(PACKET_SIZE);
+
+    // header
+    sendBuffer.push_back(glimpse->brightness());
+    sendBuffer.push_back(0);
+    sendBuffer.push_back(0);
+    sendBuffer.push_back(0);
+
+    // led data
+    for (int i = 0; i < glimpse->colors()->size(); i++) {
+        auto color = glimpse->colors()->Get(i);
         sendBuffer.push_back(color->red());
         sendBuffer.push_back(color->green());
         sendBuffer.push_back(color->blue());

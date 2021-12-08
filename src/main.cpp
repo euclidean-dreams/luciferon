@@ -26,7 +26,7 @@ std::unique_ptr<std::thread> initializeLuciferon(zmq::context_t &context) {
             zmq::socket_type::sub,
             false
     );
-    cosmographerSocket->setSubscriptionFilter(ImpresarioSerialization::Identifier::luminary);
+    cosmographerSocket->setSubscriptionFilter(ImpresarioSerialization::Identifier::glimpse);
     auto luciferonInstance = std::make_unique<luciferon::Luciferon>(move(cosmographerSocket));
     auto luciferonThread = impresarioUtils::Circlet::begin(move(luciferonInstance));
     return luciferonThread;
