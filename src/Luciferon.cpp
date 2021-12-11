@@ -9,8 +9,8 @@ Luciferon::Luciferon(std::unique_ptr<impresarioUtils::NetworkSocket> cosmographe
 }
 
 void Luciferon::activate() {
-    auto serializedData = cosmographerSocket->receiveParcel();
-    auto glimpse = ImpresarioSerialization::GetGlimpse(serializedData->getBuffer());
+    auto parcel = cosmographerSocket->receiveParcel();
+    auto glimpse = impresarioUtils::Unwrap::Glimpse(*parcel);
     std::vector<unsigned char> sendBuffer;
     sendBuffer.reserve(PACKET_SIZE);
 
