@@ -5,17 +5,18 @@
 #include <pigpio.h>
 #include <cstring>
 #include <spdlog/spdlog.h>
+#include <ImpresarioUtils.h>
 #include "Constants.h"
 
 namespace luciferon {
 
-class KeyholeConnection {
+class KeyholeConnection : public impresarioUtils::NonCopyable {
 private:
     std::vector<char> sendBuffer;
     int spiHandle;
 
 public:
-    KeyholeConnection();
+    explicit KeyholeConnection(bool useMainSpi);
 
     void send(const unsigned char *data);
 };

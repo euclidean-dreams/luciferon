@@ -18,7 +18,7 @@ integrate_cmake_dependency(
 set(
         SOURCE_FILES
         src/KeyholeConnection.cpp src/KeyholeConnection.h src/Constants.h src/Luciferon.cpp src/Luciferon.h
-)
+        src/KeyholeCommunicator.cpp src/KeyholeCommunicator.h src/SendBuffer.cpp src/SendBuffer.h)
 list(APPEND TARGETS luciferon)
 add_executable(luciferon src/main.cpp ${SOURCE_FILES})
 

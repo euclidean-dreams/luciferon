@@ -5,37 +5,40 @@
 #include <ImpresarioUtils.h>
 #include "Constants.h"
 #include "Luciferon.h"
-
-void initializeLogger() {
-    spdlog::stdout_color_mt(LOGGER_NAME);
-}
+#include "SendBuffer.h"
+#include "KeyholeCommunicator.h"
 
 void initializePigpio() {
     auto pigpioInitializationResult = gpioInitialise();
     if (pigpioInitializationResult < 0) {
-        spdlog::get(LOGGER_NAME)->info(
-                "failed to initialize pigpio - failed with error code: {}", pigpioInitializationResult
-        );
+        LOGGER->error("failed to initialize pigpio - failed with error code: {}", pigpioInitializationResult);
     }
 }
 
-std::unique_ptr<std::thread> initializeLuciferon(zmq::context_t &context) {
+int main() {
+    std::string configFilePath = "./config.yml";
+    impresarioUtils::Bootstrapper bootstrapper(configFilePath, 1);
+
+    initializePigpio();
+    auto mainArbiter = std::make_shared<impresarioUtils::Arbiter<const luciferon::SendBuffer>>();
+    auto auxArbiter = std::make_shared<impresarioUtils::Arbiter<const luciferon::SendBuffer>>();
     auto cosmographerSocket = std::make_unique<impresarioUtils::NetworkSocket>(
-            context,
+            bootstrapper.getZmqContext(),
             COSMOGRAPHER_ENDPOINT,
             zmq::socket_type::sub,
             false
     );
     cosmographerSocket->setSubscriptionFilter(ImpresarioSerialization::Identifier::glimpse);
-    auto luciferonInstance = std::make_unique<luciferon::Luciferon>(move(cosmographerSocket));
+    auto luciferonInstance = std::make_unique<luciferon::Luciferon>(move(cosmographerSocket), mainArbiter, auxArbiter);
     auto luciferonThread = impresarioUtils::Circlet::begin(move(luciferonInstance));
-    return luciferonThread;
-}
 
-int main() {
-    zmq::context_t context(1);
-    initializeLogger();
-    initializePigpio();
-    auto luciferonThread = initializeLuciferon(context);
+    auto mainKeyholeCommunicator = std::make_unique<luciferon::KeyholeCommunicator>(0, move(mainArbiter));
+    auto mainKeyholeCommunicatorThread = impresarioUtils::Circlet::begin(move(mainKeyholeCommunicator));
+
+    auto auxKeyholeCommunicator = std::make_unique<luciferon::KeyholeCommunicator>(1, move(auxArbiter));
+    auto auxKeyholeCommunicatorThread = impresarioUtils::Circlet::begin(move(auxKeyholeCommunicator));
+
     luciferonThread->join();
+    mainKeyholeCommunicatorThread->join();
+    auxKeyholeCommunicatorThread->join();
 }

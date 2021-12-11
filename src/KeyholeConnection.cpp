@@ -2,12 +2,18 @@
 
 namespace luciferon {
 
-KeyholeConnection::KeyholeConnection()
+KeyholeConnection::KeyholeConnection(bool useMainSpi)
         : sendBuffer{} {
     sendBuffer.resize(PACKET_SIZE, 0);
-    spiHandle = spiOpen(0, BAUDRATE, 0);
+    int spiFlags;
+    if (useMainSpi) {
+        spiFlags = 0;
+    } else {
+        spiFlags = 256;
+    }
+    spiHandle = spiOpen(0, BAUDRATE, spiFlags);
     if (spiHandle < 0) {
-        spdlog::get(LOGGER_NAME)->info("failed to open spi connection, error code: {}", spiHandle);
+        LOGGER->error("failed to open spi connection, error code: {}", spiHandle);
     }
 }
 
@@ -15,7 +21,7 @@ void KeyholeConnection::send(const unsigned char *data) {
     std::memcpy(sendBuffer.data(), data, PACKET_SIZE);
     auto spiResult = spiWrite(spiHandle, sendBuffer.data(), PACKET_SIZE);
     if (spiResult != PACKET_SIZE) {
-        spdlog::get(LOGGER_NAME)->info("spi write failed, error code: {}", spiResult);
+        LOGGER->error("spi write failed, error code: {}", spiResult);
     }
 }
 
