@@ -2,6 +2,33 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
+      <paths name="1 (0a369be5-27ef-4e18-b0c3-5cba49800366)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.qW0iFBEmE6" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-1" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-1" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="2 (489072ac-efbc-4ccd-8bfe-d0de48cf720e)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/luciferon" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-1" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
       <paths name="ambrose (21bcc28b-043a-4342-8a2e-16eadf376e46)">
         <serverdata>
           <mappings>
@@ -10,6 +37,8 @@
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-1" />
           </excludedPaths>
         </serverdata>
       </paths>
