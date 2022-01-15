@@ -8,6 +8,13 @@
     <mapping directory="$PROJECT_DIR$/cmake-build-debug-ambrose/impresario-utils-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug-ambrose/impresario-utils-src/lib/cmake-utils" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug-ambrose/pigpio-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/flatbuffers-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/impresario-serialization-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/impresario-serialization-src/lib/cmake-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/impresario-utils-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/impresario-utils-src/lib/cmake-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/pigpio-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug-keyhole_0/yaml-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-release-1/flatbuffers-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-release-1/impresario-serialization-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-release-1/impresario-serialization-src/lib/cmake-utils" vcs="Git" />
@@ -28,6 +35,20 @@
     <mapping directory="$PROJECT_DIR$/cmake-build-release-ambrose/impresario-utils-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-release-ambrose/impresario-utils-src/lib/cmake-utils" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-release-ambrose/pigpio-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/flatbuffers-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/impresario-serialization-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/impresario-serialization-src/lib/cmake-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/impresario-utils-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/impresario-utils-src/lib/cmake-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/pigpio-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_0/yaml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/flatbuffers-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/impresario-serialization-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/impresario-serialization-src/lib/cmake-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/impresario-utils-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/impresario-utils-src/lib/cmake-utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/pigpio-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release-keyhole_2/yaml-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/lib/cmake-utils" vcs="Git" />
   </component>
 </project>

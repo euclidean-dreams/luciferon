@@ -30,10 +30,6 @@ void Luciferon::activate() {
     keyholeConnection->send(sendBuffer.data());
 }
 
-uint64_t Luciferon::getTickInterval() {
-    return 0;
-}
-
 bool Luciferon::finished() {
     return false;
 }
